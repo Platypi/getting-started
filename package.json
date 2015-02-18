@@ -1,0 +1,92 @@
+{
+    "name": "Getting-started",
+    "version": "0.0.1",
+    "description": "Platypi Getting Started Guide",
+    "author": "Matt Landers",
+    "homepage": "",
+    "main": "index.js",
+    "scripts": {
+        "prepublish": "./node_modules/.bin/grunt install --force"
+    },
+    "dependencies": {
+        "platypus": "0.10.5",
+        "connect": "latest",
+        "serve-static": "latest",
+        "morgan": "latest"
+    },
+    "devDependencies": {
+        "stringify": "^3.1.0",
+        "browserify": "latest",
+        "deamdify": "latest",
+        "grunt": "latest",
+        "grunt-browserify": "latest",
+        "grunt-cli": "latest",
+        "grunt-ts": "latest",
+        "grunt-tsd": "latest",
+        "grunt-cordovacli": "latest",
+        "grunt-concurrent": "latest",
+        "grunt-contrib-clean": "latest",
+        "grunt-contrib-copy": "latest",
+        "grunt-contrib-cssmin": "latest",
+        "grunt-contrib-less": "latest",
+        "grunt-contrib-uglify": "latest",
+        "grunt-contrib-watch": "latest",
+        "grunt-nodemon": "latest",
+        "grunt-shell": "latest",
+        "grunt-tslint": "latest",
+        "tsd": "next"
+    },
+    "platypi": {
+        "projectType": "mobile",
+        "viewcontrols": [
+            {
+                "name": "base",
+                "type": "viewcontrol",
+                "path": "viewcontrols/base"
+            },
+            {
+                "name": "home",
+                "type": "viewcontrol",
+                "path": "viewcontrols/home"
+            }
+        ],
+        "injectables": [],
+        "services": [
+            {
+                "name": "base",
+                "type": "service",
+                "path": "services/base"
+            }
+        ],
+        "repositories": [
+            {
+                "name": "base",
+                "type": "repository",
+                "path": "repositories/base"
+            }
+        ],
+        "factories": [
+            {
+                "name": "base",
+                "type": "factory",
+                "path": "factories/base"
+            },
+            {
+                "name": "server",
+                "type": "factory",
+                "path": "factories/server"
+            }
+        ],
+        "templatecontrols": [
+            {
+                "name": "base",
+                "type": "templatecontrol",
+                "path": "common/controls/base"
+            }
+        ],
+        "attributecontrols": [],
+        "templatesVersion": "0.1.9",
+        "publicPath": "public",
+        "mainFilePath": "public/main.ts"
+    }
+}

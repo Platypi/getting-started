@@ -26,3 +26,12 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# Platypi Edited
+*.js
+!gruntfile.js
+!index.js
+/node_modules
+/.tscache
+*.map
+*.css
