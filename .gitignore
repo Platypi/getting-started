@@ -35,3 +35,5 @@ node_modules
 /.tscache
 *.map
 *.css
+!/public/polyfills.js
+!/public/scripts.js
