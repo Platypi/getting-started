@@ -1,12 +1,32 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Getting-started</title>
-		<link rel="stylesheet" type="text/css" href="style.css" />
-	</head>
-	<body>
+
+<head>
+    <meta charset="utf-8">
+    <title>Getting-started</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <plat-drawer>
+        <div class="container">
+            <div class="row">
+                <plat-link plat-options="{ view: '', isUrl: true }">
+                    Home
+                </plat-link>
+            </div>
+            <div class="row">
+                <plat-link plat-options="{ view: '/login', isUrl: true }">
+                    Logout
+                </plat-link>
+            </div>
+        </div>
+    </plat-drawer>
+    <div style="background-color: white; height: 100%;">
+        <navbar></navbar>
         <plat-viewport></plat-viewport>
-		<script type="text/javascript" src="app.js"></script>
-	</body>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
 </html>

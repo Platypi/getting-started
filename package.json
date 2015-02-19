@@ -55,6 +55,24 @@
                 "type": "viewcontrol",
                 "path": "viewcontrols/login",
                 "registeredName": "login-vc"
+            },
+            {
+                "name": "register",
+                "type": "viewcontrol",
+                "path": "viewcontrols/register",
+                "registeredName": "register-vc"
+            },
+            {
+                "name": "order",
+                "type": "viewcontrol",
+                "path": "viewcontrols/order",
+                "registeredName": "order-vc"
+            },
+            {
+                "name": "confirmation",
+                "type": "viewcontrol",
+                "path": "viewcontrols/confirmation",
+                "registeredName": "confirmation-vc"
             }
         ],
         "injectables": [],
@@ -69,6 +87,12 @@
                 "type": "service",
                 "path": "services/user",
                 "registeredName": "user-service"
+            },
+            {
+                "name": "products",
+                "type": "service",
+                "path": "services/products",
+                "registeredName": "products-service"
             }
         ],
         "repositories": [
@@ -94,6 +118,12 @@
                 "name": "server",
                 "type": "factory",
                 "path": "factories/server"
+            },
+            {
+                "name": "user",
+                "type": "factory",
+                "path": "factories/user",
+                "registeredName": "user-factory"
             }
         ],
         "templatecontrols": [
@@ -101,6 +131,18 @@
                 "name": "base",
                 "type": "templatecontrol",
                 "path": "common/controls/base"
+            },
+            {
+                "name": "drawer",
+                "type": "templatecontrol",
+                "path": "common/controls/drawer",
+                "registeredName": "drawer-tc"
+            },
+            {
+                "name": "navbar",
+                "type": "templatecontrol",
+                "path": "common/controls/navbar",
+                "registeredName": "navbar-tc"
             }
         ],
         "attributecontrols": [],

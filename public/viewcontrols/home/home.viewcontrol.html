@@ -1,1 +1,9 @@
-﻿<h1>Hello World!</h1>
+﻿<ul plat-control="plat-foreach" plat-context="products">
+	<li plat-tap="order(id)">
+		<div class="row-header">
+			<span>{{name}}</span>
+			<span>FREE</span>
+		</div>
+		<img src="{{image}}" alt="">
+	</li>
+</ul>

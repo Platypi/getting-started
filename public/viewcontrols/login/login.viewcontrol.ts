@@ -3,6 +3,8 @@
 import plat = require('platypus');
 import BaseViewControl = require('../base/base.viewcontrol');
 import UserRepository = require('../../repositories/user/user.repository');
+import HomeViewControl = require('../home/home.viewcontrol');
+import RegisterViewControl = require('../register/register.viewcontrol');
 
 class LoginViewControl extends BaseViewControl {
     templateString: string = require('./login.viewcontrol.html');
@@ -20,7 +22,7 @@ class LoginViewControl extends BaseViewControl {
         this.userRepository.login(this.context.email, this.context.password)
             .then((success) => {
                 if(success) {
-
+                    this.navigator.navigate(HomeViewControl);
                 } else {
                     this.context.error = 'Login Failed';
                 }
@@ -29,7 +31,7 @@ class LoginViewControl extends BaseViewControl {
     }
 
     register() {
-
+        this.navigator.navigate(RegisterViewControl);
     }
 }
 

@@ -9,15 +9,38 @@ class UserService extends BaseService {
         super();
     }
 
-    login(email: string, password: string): plat.async.IThenable<any> {
-    	return this._http.json({
+    login(email: string, password: string): plat.async.IThenable<models.IUser> {
+    	return this._http.json<models.IResponse>({
     		method: 'POST',
-    		url: '/login',
-    		data: {
+    		url: this.host + '/users/login',
+    		data: <models.IUser>{
     			email: email,
     			password: password
     		}
-    	});
+    	}).then((success) => {
+            return <models.IUser>{
+                id: success.response.data,
+                email: email
+            };
+        });
+    }
+
+    register(email: string, password: string, firstname: string, lastname: string): plat.async.IThenable<models.IUser> {
+        return this._http.json<models.IResponse>({
+            method: 'POST',
+            url: this.host + '/users/register',
+            data: <models.IUser>{
+                email: email,
+                password: password,
+                firstname: firstname,
+                lastname: lastname
+            }
+        }).then((success) => {
+            return <models.IUser>{
+                id: success.response.data,
+                email: email
+            };
+        });
     }
 }
 

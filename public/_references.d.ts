@@ -5,3 +5,5 @@
 /// <reference path="factories/base/ibase.factory.d.ts" />
 
 // services
+
+/// <reference path="factories/models.d.ts" />

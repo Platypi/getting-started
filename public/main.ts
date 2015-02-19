@@ -21,3 +21,13 @@ require('./viewcontrols/login/login.viewcontrol');
 require('./services/user/user.service');
 
 require('./repositories/user/user.repository');
+
+require('./viewcontrols/register/register.viewcontrol');
+
+require('./common/controls/navbar/navbar.templatecontrol');
+
+require('./viewcontrols/order/order.viewcontrol');
+
+require('./services/products/products.service');
+
+require('./viewcontrols/confirmation/confirmation.viewcontrol');
