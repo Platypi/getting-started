@@ -37,3 +37,4 @@ node_modules
 *.css
 !/public/polyfills.js
 !/public/scripts.js
+*.sublime-workspace
