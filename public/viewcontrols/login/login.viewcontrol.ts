@@ -9,8 +9,8 @@ import RegisterViewControl = require('../register/register.viewcontrol');
 class LoginViewControl extends BaseViewControl {
     templateString: string = require('./login.viewcontrol.html');
     context: any = {
-        email: '',
-        password: '',
+        email: 'matt@getplatypi.com',
+        password: 'password',
         error: ''
     };
 

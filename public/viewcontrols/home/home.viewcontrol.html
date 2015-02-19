@@ -1,9 +1,9 @@
-﻿<ul plat-control="plat-foreach" plat-context="products">
+﻿<ul plat-control="plat-foreach" plat-context="products" class="product-list">
 	<li plat-tap="order(id)">
-		<div class="row-header">
+		<div class="product-item-image" style="background-image: url({{image}})"></div>
+		<div class="product-item-details">
 			<span>{{name}}</span>
-			<span>FREE</span>
+			<span class="price">FREE</span>
 		</div>
-		<img src="{{image}}" alt="">
 	</li>
 </ul>
