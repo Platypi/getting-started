@@ -4,6 +4,9 @@
  * included in this file.
  */
 
+require('platypus');
+require('platypusui');
+
 // polyfills
 require('./polyfills');
 
@@ -14,3 +17,7 @@ require('./scripts');
 require('./app/app');
 
 require('./viewcontrols/login/login.viewcontrol');
+
+require('./services/user/user.service');
+
+require('./repositories/user/user.repository');

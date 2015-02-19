@@ -2,6 +2,7 @@
 
 import plat = require('platypus');
 import HomeViewControl = require('../viewcontrols/home/home.viewcontrol');
+import LoginViewControl = require('../viewcontrols/login/login.viewcontrol');
 
 export class App extends plat.App {
     /**
@@ -12,7 +13,8 @@ export class App extends plat.App {
         super();
 
         router.configure([
-            { pattern: '', view: HomeViewControl }
+            { pattern: '', view: HomeViewControl },
+            { pattern: '/login', view: LoginViewControl}
         ]);
     }
 

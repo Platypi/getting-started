@@ -9,12 +9,13 @@
         "prepublish": "./node_modules/.bin/grunt install --force"
     },
     "dependencies": {
-        "platypus": "0.10.5",
         "connect": "latest",
         "serve-static": "latest",
         "morgan": "latest"
     },
     "devDependencies": {
+        "platypus": "latest",
+        "platypusui": "latest",
         "stringify": "^3.1.0",
         "browserify": "latest",
         "deamdify": "latest",
@@ -62,6 +63,12 @@
                 "name": "base",
                 "type": "service",
                 "path": "services/base"
+            },
+            {
+                "name": "user",
+                "type": "service",
+                "path": "services/user",
+                "registeredName": "user-service"
             }
         ],
         "repositories": [
@@ -69,6 +76,12 @@
                 "name": "base",
                 "type": "repository",
                 "path": "repositories/base"
+            },
+            {
+                "name": "user",
+                "type": "repository",
+                "path": "repositories/user",
+                "registeredName": "user-repo"
             }
         ],
         "factories": [
