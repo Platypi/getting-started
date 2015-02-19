@@ -12,3 +12,5 @@ require('./scripts');
 
 // app
 require('./app/app');
+
+require('./viewcontrols/login/login.viewcontrol');

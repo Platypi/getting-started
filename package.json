@@ -48,6 +48,12 @@
                 "name": "home",
                 "type": "viewcontrol",
                 "path": "viewcontrols/home"
+            },
+            {
+                "name": "login",
+                "type": "viewcontrol",
+                "path": "viewcontrols/login",
+                "registeredName": "login-vc"
             }
         ],
         "injectables": [],
