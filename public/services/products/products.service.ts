@@ -29,6 +29,6 @@ class ProductsService extends BaseService {
     }
 }
 
-plat.register.injectable('products-serviceService', ProductsService, [UserRepository]);
+plat.register.injectable('products-service', ProductsService, [UserRepository]);
 
 export = ProductsService;

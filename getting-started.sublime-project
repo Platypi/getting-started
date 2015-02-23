@@ -5,7 +5,7 @@
 			"follow_symlinks": true,
 			"path": ".",
 			"file_exclude_patterns": ["*.css","*.map", "public/**/*.js", "public/main.js", "public/app.js"],
-			"folder_exclude_patterns": ["node_modules", ".tscache"]
+			"folder_exclude_patterns": ["node_modules", ".tscache", "cordova"]
 		}
 	]
 }
