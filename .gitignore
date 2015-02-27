@@ -38,3 +38,4 @@ node_modules
 !/public/polyfills.js
 !/public/scripts.js
 *.sublime-workspace
+/cordova

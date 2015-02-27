@@ -79,6 +79,13 @@ module.exports = function (grunt) {
                         ],
                         dest: './cordova/www', filter: 'isFile'
                     },
+                    {
+                        expand: true, flatten: true,
+                        src: [
+                            './public/common/assets/**'
+                        ],
+                        dest: './cordova/www/common/assets'
+                    }
                 ]
             }
         },
@@ -211,7 +218,7 @@ module.exports = function (grunt) {
             create: {
                 options: {
                     command: 'create',
-                    id: 'plat.getting-started',
+                    id: 'plat.gettingstarted',
                     name: 'Getting-started'
                 }
             },
