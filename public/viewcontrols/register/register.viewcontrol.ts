@@ -25,11 +25,9 @@ class RegisterViewControl extends BaseViewcontrol {
             this.context.firstname,
             this.context.lastname)
         .then((success) => {
-            if(success) {
-                this.navigator.navigate(HomeViewControl);
-            } else {
-                this.context.error = 'Registration Failed';
-            }
+            this.navigator.navigate(HomeViewControl);
+        }).catch((error) => {
+            this.context.error = error;
         });
     }
 }

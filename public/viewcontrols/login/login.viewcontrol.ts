@@ -9,8 +9,8 @@ import RegisterViewControl = require('../register/register.viewcontrol');
 class LoginViewControl extends BaseViewControl {
     templateString: string = require('./login.viewcontrol.html');
     context: any = {
-        email: 'matt@getplatypi.com',
-        password: 'password',
+        email: '',
+        password: '',
         error: ''
     };
 
@@ -20,14 +20,11 @@ class LoginViewControl extends BaseViewControl {
 
     login() {
         this.userRepository.login(this.context.email, this.context.password)
-            .then((success) => {
-                if(success) {
-                    this.navigator.navigate(HomeViewControl);
-                } else {
-                    this.context.error = 'Login Failed';
-                }
-            }
-        );
+        .then((success) => {
+            this.navigator.navigate(HomeViewControl);
+        }).catch((error) => {
+            this.context.error = error;
+        });
     }
 
     register() {

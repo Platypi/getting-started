@@ -26,7 +26,8 @@ img {
     background-color: #ffffff;
 }
 [plat-control="plat-viewport"] {
-    overflow-y: auto;
+    height: calc(~'100% - @{navbar-height}');
+    overflow-y: auto;
 }
 .content-container {
     height: 100%;

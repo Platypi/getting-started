@@ -17,8 +17,6 @@ class UserRepository extends BaseRepository {
 			this.userid = user.id;
 			this.email = user.email;
 			return true;
-		}).catch((error) => {
-			return false;
 		});
 	}
 
@@ -27,8 +25,6 @@ class UserRepository extends BaseRepository {
 			this.userid = user.id;
 			this.email = user.email;
 			return true;
-		}).catch((error) => {
-			return false;
 		});
 	}
 }

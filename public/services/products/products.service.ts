@@ -23,9 +23,14 @@ class ProductsService extends BaseService {
 			method: 'POST',
 			url: this.host + '/orders/create',
 			data: order
-    	}).then((success) => {
-    		return true;
-    	});
+    	}).then(
+            (success) => {
+                return true;
+        	},
+            (error: plat.async.AjaxError) => {
+                throw error.response.message;
+            }
+        );
     }
 }
 

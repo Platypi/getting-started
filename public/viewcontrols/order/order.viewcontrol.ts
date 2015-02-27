@@ -20,18 +20,14 @@ class OrderViewControl extends BaseViewcontrol {
     constructor(private productsService: ProductsService) {
         super();
     }
-
     navigatedTo(params: { id: string; }, query: any) {
         this.context.order.productid = params.id;
     }
-
     placeOrder() {
         this.productsService.placeOrder(this.context.order).then((success) => {
-            if(success) {
-                this.navigator.navigate(ConfirmationViewControl);
-            } else {
-                this.context.error = 'Order Failed';
-            }
+            this.navigator.navigate(ConfirmationViewControl);
+        }).catch((error) => {
+            this.context.error = error;
         });
     }
 }

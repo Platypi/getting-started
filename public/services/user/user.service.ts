@@ -17,12 +17,17 @@ class UserService extends BaseService {
     			email: email,
     			password: password
     		}
-    	}).then((success) => {
-            return <models.IUser>{
-                id: success.response.data,
-                email: email
-            };
-        });
+    	}).then(
+            (success) => {
+                return <models.IUser>{
+                    id: success.response.data,
+                    email: email
+                };
+            },
+            (error: plat.async.AjaxError) => {
+                throw error.response.message;
+            }
+        );
     }
 
     register(email: string, password: string, firstname: string, lastname: string): plat.async.IThenable<models.IUser> {
@@ -35,12 +40,17 @@ class UserService extends BaseService {
                 firstname: firstname,
                 lastname: lastname
             }
-        }).then((success) => {
-            return <models.IUser>{
-                id: success.response.data,
-                email: email
-            };
-        });
+        }).then(
+            (success) => {
+                return <models.IUser>{
+                    id: success.response.data,
+                    email: email
+                };
+            },
+            (error) => {
+                throw error.response.message;
+            }
+        );
     }
 }
 
