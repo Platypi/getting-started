@@ -6,6 +6,7 @@ import LoginViewControl = require('../viewcontrols/login/login.viewcontrol');
 import RegisterViewControl = require('../viewcontrols/register/register.viewcontrol');
 import OrderViewControl = require('../viewcontrols/order/order.viewcontrol');
 import ConfirmationViewControl = require('../viewcontrols/confirmation/confirmation.viewcontrol');
+declare var StatusBar: { hide(): void; };
 
 export class App extends plat.App {
     constructor(router: plat.routing.Router) {
@@ -19,7 +20,11 @@ export class App extends plat.App {
             { pattern: '/confirmation', view: ConfirmationViewControl },
         ]);
     }
-    ready(ev: plat.events.LifecycleEvent) { }
+    ready(ev: plat.events.LifecycleEvent) { 
+        try {
+            StatusBar.hide();
+        } catch(e) { }
+    }
     error(ev: plat.events.ErrorEvent<Error>) {
         // log or handle errors at a global level
         console.log(ev.error);

@@ -26,8 +26,9 @@ img {
     background-color: #ffffff;
 }
 [plat-control="plat-viewport"] {
-    height: calc(~'100% - @{navbar-height}');
+    height: calc(~'100%' - @navbar-height);
     overflow-y: auto;
+    #platui > #mixins > .scroll();
 }
 .content-container {
     height: 100%;
@@ -68,7 +69,7 @@ img {
     &:before {
         position: absolute;
         top: -@arrow-width;
-        left: calc(~'50% - (@{arrow-width} / 2)');
+        left: calc(~'50%' - (@arrow-width / 2));
         content: '';
         width: 0;
         height: 0;
