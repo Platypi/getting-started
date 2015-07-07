@@ -10,7 +10,7 @@ export default class NavbarTemplateControl extends ui.TemplateControl {
 	    showNavbar: false
 	};
 
-	initialize() {
+	initialize(): void {
 	    this.on('navigated', (ev: events.DispatchEvent, utils: web.UrlUtils) => {
 	        this.drawerController.control.close();
 	        if(utils.pathname.indexOf('/login') === 0 ||

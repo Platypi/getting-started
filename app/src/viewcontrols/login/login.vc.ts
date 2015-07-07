@@ -7,7 +7,7 @@ import UserRepository from '../../repositories/user/user.repo';
 export default class LoginViewControl extends BaseViewControl {
     templateString: string = require('./login.vc.html');
 
-    context = {
+    context: contexts.ILogin = {
         email: '',
         password: '',
         error: ''
@@ -17,7 +17,7 @@ export default class LoginViewControl extends BaseViewControl {
         super();
     }
 
-    login() {
+    login(): void {
         this.userRepository.login(this.context.email, this.context.password)
         .then((success) => {
             this.navigator.navigate(HomeViewControl);
@@ -26,7 +26,7 @@ export default class LoginViewControl extends BaseViewControl {
         });
     }
 
-    register() {
+    register(): void {
         this.navigator.navigate(RegisterViewControl);
     }
 }

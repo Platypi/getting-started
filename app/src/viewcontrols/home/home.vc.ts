@@ -7,7 +7,7 @@ import ProductsRepository from '../../repositories/products/products.repo';
 export default class HomeViewControl extends BaseViewControl {
 	templateString: string = require('./home.vc.html');
 
-	context = {
+	context: contexts.IHome = {
 	    products: <Array<models.IProduct>>[]
 	};
 
@@ -15,20 +15,20 @@ export default class HomeViewControl extends BaseViewControl {
 	    super();
 	}
 
-	canNavigateTo() {
+	canNavigateTo(): boolean {
 	    if(this.userRepository.userid === 0) {
 	        this.navigator.navigate('login-vc');
 	        return false;
 	    }
 	}
 
-	navigatedTo() {
+	navigatedTo(): void {
 	    this.productsRepository.getProducts().then((products) => {
 	        this.context.products = products;
 	    });
 	}
 
-	order(id: number) {
+	order(id: number): void {
 	    this.navigator.navigate(OrderViewControl, { parameters: { id: id } });
 	}
 }

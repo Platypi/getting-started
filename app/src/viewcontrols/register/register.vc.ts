@@ -6,7 +6,7 @@ import UserRepository from '../../repositories/user/user.repo';
 export default class RegisterViewControl extends BaseViewControl {
 	templateString: string = require('./register.vc.html');
 
-	context = {
+	context: contexts.IRegister = {
 	    firstname: '',
 	    lastname: '',
 	    email: '',
@@ -18,7 +18,7 @@ export default class RegisterViewControl extends BaseViewControl {
 	    super();
 	}
 
-	register() {
+	register(): void {
 	    this.context.error = '';
 	    this.userRepository.register(this.context.email,
 	        this.context.password,
