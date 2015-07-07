@@ -1,153 +1,53 @@
 {
-    "name": "Getting-started",
-    "version": "0.0.1",
-    "description": "Platypi Getting Started Guide",
-    "author": "Matt Landers",
-    "homepage": "",
-    "main": "index.js",
-    "scripts": {
-        "prepublish": "./node_modules/.bin/grunt install --force"
-    },
-    "dependencies": {
-        "connect": "latest",
-        "serve-static": "latest",
-        "morgan": "latest"
-    },
-    "devDependencies": {
-        "platypus": "latest",
-        "platypusui": "latest",
-        "stringify": "^3.1.0",
-        "browserify": "latest",
-        "deamdify": "latest",
-        "grunt": "latest",
-        "grunt-browserify": "latest",
-        "grunt-cli": "latest",
-        "grunt-ts": "latest",
-        "grunt-tsd": "latest",
-        "grunt-cordovacli": "latest",
-        "grunt-concurrent": "latest",
-        "grunt-contrib-clean": "latest",
-        "grunt-contrib-copy": "latest",
-        "grunt-contrib-cssmin": "latest",
-        "grunt-contrib-less": "latest",
-        "grunt-contrib-uglify": "latest",
-        "grunt-contrib-watch": "latest",
-        "grunt-nodemon": "latest",
-        "grunt-shell": "latest",
-        "grunt-tslint": "latest",
-        "tsd": "next"
-    },
-    "platypi": {
-        "projectType": "mobile",
-        "viewcontrols": [
-            {
-                "name": "base",
-                "type": "viewcontrol",
-                "path": "viewcontrols/base"
-            },
-            {
-                "name": "home",
-                "type": "viewcontrol",
-                "path": "viewcontrols/home"
-            },
-            {
-                "name": "login",
-                "type": "viewcontrol",
-                "path": "viewcontrols/login",
-                "registeredName": "login-vc"
-            },
-            {
-                "name": "register",
-                "type": "viewcontrol",
-                "path": "viewcontrols/register",
-                "registeredName": "register-vc"
-            },
-            {
-                "name": "order",
-                "type": "viewcontrol",
-                "path": "viewcontrols/order",
-                "registeredName": "order-vc"
-            },
-            {
-                "name": "confirmation",
-                "type": "viewcontrol",
-                "path": "viewcontrols/confirmation",
-                "registeredName": "confirmation-vc"
-            }
-        ],
-        "injectables": [],
-        "services": [
-            {
-                "name": "base",
-                "type": "service",
-                "path": "services/base"
-            },
-            {
-                "name": "user",
-                "type": "service",
-                "path": "services/user",
-                "registeredName": "user-service"
-            },
-            {
-                "name": "products",
-                "type": "service",
-                "path": "services/products",
-                "registeredName": "products-service"
-            }
-        ],
-        "repositories": [
-            {
-                "name": "base",
-                "type": "repository",
-                "path": "repositories/base"
-            },
-            {
-                "name": "user",
-                "type": "repository",
-                "path": "repositories/user",
-                "registeredName": "user-repo"
-            }
-        ],
-        "factories": [
-            {
-                "name": "base",
-                "type": "factory",
-                "path": "factories/base"
-            },
-            {
-                "name": "server",
-                "type": "factory",
-                "path": "factories/server"
-            },
-            {
-                "name": "user",
-                "type": "factory",
-                "path": "factories/user",
-                "registeredName": "user-factory"
-            }
-        ],
-        "templatecontrols": [
-            {
-                "name": "base",
-                "type": "templatecontrol",
-                "path": "common/controls/base"
-            },
-            {
-                "name": "drawer",
-                "type": "templatecontrol",
-                "path": "common/controls/drawer",
-                "registeredName": "drawer-tc"
-            },
-            {
-                "name": "navbar",
-                "type": "templatecontrol",
-                "path": "common/controls/navbar",
-                "registeredName": "navbar-tc"
-            }
-        ],
-        "attributecontrols": [],
-        "templatesVersion": "0.1.9",
-        "publicPath": "public",
-        "mainFilePath": "public/main.ts"
-    }
+  "name": "getting-started",
+  "version": "0.0.0",
+  "private": true,
+  "main": "app/dist/app.js",
+  "dependencies": {
+    "browserify": "latest",
+    "concurrently": "latest",
+    "less": "latest",
+    "less-plugin-clean-css": "latest",
+    "minifyify": "latest",
+    "mkdirp": "latest",
+    "ncp": "latest",
+    "platypus": "latest",
+    "platypusui": "latest",
+    "stringify": "latest",
+    "tsconfig-glob": "latest",
+    "tsconfig-lint": "latest",
+    "tsd": "latest",
+    "typescript": "1.5.0-alpha"
+  },
+  "devDependencies": {
+    "http-server": "latest",
+    "nodemon": "latest",
+    "rimraf": "latest"
+  },
+  "scripts": {
+    "build": "npm run less && npm run build:ts",
+    "build:cordova": "npm run deploy && npm run copy && plat cordova prepare && plat cordova build",
+    "build:ts": "npm run ts && npm run bundle",
+    "bundle": "mkdirp app/dist && browserify app/src/main.js -d -t stringify -o app/dist/app.js -v",
+    "clean": "rimraf app/**/*.css app/src/**/*.js app/dist/*",
+    "clean:dist": "rimraf app/dist/*",
+    "copy": "mkdirp cordova/www && concurrent -r \"npm run copy:dist\" \"npm run copy:fonts\" \"npm run copy:images\" \"npm run copy:index\"",
+    "copy:dist": "ncp app/dist cordova/www/dist",
+    "copy:fonts": "ncp app/fonts cordova/www/fonts",
+    "copy:images": "ncp app/images cordova/www/images",
+    "copy:index": "ncp app/index.html cordova/www/index.html",
+    "deploy": "npm run clean:dist && npm run build -- -- -- -p [minifyify --no-map]",
+    "less": "mkdirp app/dist && lessc app/styles/main.less > app/dist/app.css --clean-css=\"--s0 --advanced\"",
+    "lint": "tsconfig-lint --use-glob",
+    "postbundle": "echo bundle done!",
+    "postless": "echo less done!",
+    "prepublish": "npm run tsd && tsconfig",
+    "start": "concurrent -r \"npm run watch\" \"http-server -p 3000 app\"",
+    "ts": "tsconfig && tsc -p .",
+    "tsd": "tsd update -so && tsd link",
+    "watch": "npm run ts && concurrent -r \"npm run watch:ts\" \"npm run watch:html\" \"npm run watch:less\"",
+    "watch:html": "nodemon -q -w app -e html --exec npm run bundle",
+    "watch:less": "nodemon -q -w app -e less --exec npm run less",
+    "watch:ts": "nodemon -q -w app -e ts --exec npm run build:ts"
+  }
 }
