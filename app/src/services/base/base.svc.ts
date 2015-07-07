@@ -11,5 +11,17 @@ export default class BaseService {
 	protected Promise: async.IPromise;
 	protected utils: Utils;
 
-	host: string = 'my-host';
+	host: string = 'http://platypisamples.azurewebsites.net/gettingstarted/api';
+
+	json(url: string, data?: any, method: string = 'GET'): async.IThenable<any> {
+	    return this.http.json<models.IResponse>({
+	        method: method,
+	        url: url,
+	        data: data
+	    }).then((success) => {
+	        return success.response.data;
+	    }, (error) => {
+	        throw error.response.message;
+	    });
+	}
 }
