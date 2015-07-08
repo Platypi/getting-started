@@ -1,6 +1,6 @@
-require('platypus');
-require('platypusui');
+import 'platypus';
+import 'platypusui';
 
-require('./app/app');
+import './app/app';
 
-require('./templatecontrols/navbar/navbar.tc');
+import './templatecontrols/navbar/navbar.tc';
